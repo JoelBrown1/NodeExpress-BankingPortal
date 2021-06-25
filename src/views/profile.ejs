@@ -1,0 +1,13 @@
+<%- include('header'); %>
+<h1>Profile</h1>
+<div>
+  <% 
+    const userKeys = Object.keys(user);
+    userKeys.forEach(key => {%>
+      <p><%= user[key] %></p>
+  <%});%>
+  
+</div>
+<br>
+<a href="/">Back to Accounts Summary</a>
+<%- include('footer'); %>
