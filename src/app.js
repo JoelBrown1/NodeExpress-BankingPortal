@@ -68,6 +68,18 @@ app.get('/transfer', (req, res)=> {
   app.get('/payment', (req, res) => {
     res.render('payment', { account: accounts.credit })
   })
+  .post('/payment', (req, res) => {
+    const {from, to, amount } = req.body;
+    accounts.credit.balance -= amount;
+    accounts.credit.available += parseInt(amount);
+    const accountsJSON = JSON.stringify(accounts);
+    fs.writeFileSync(
+      path.join(__dirname, './json/accounts.json'), 
+      accountsJSON, 
+      'utf8'
+    );
+    res.render('payment', { message: "Payment Successful", account: accounts.credit })
+  })
 
 
 app.get(`/profile`, (req, res)=> {
