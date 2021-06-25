@@ -3,10 +3,9 @@
   <h1><%=title%></h1>
   <a href="/profile">Profile</a>
 </div>
-<%  const keys = Object.keys(accounts);
-    keys.forEach(key => {%>
-      <%-include('summary',{account: accounts[key]})%>
-<%})%>
+<%- include('summary.ejs',{account: accounts.savings}) %>
+<%- include('summary.ejs',{account: accounts.checking}) %>
+<%- include('summary.ejs',{account: accounts.credit}) %>
 <br />
   <a href="/transfer">Transfer</a>
 <%- include('footer') %>

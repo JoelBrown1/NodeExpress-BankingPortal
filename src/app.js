@@ -23,7 +23,7 @@ console.log('these are our users: ', users);
 app.get('/', (req, res) => {
   res.render('index', {
     title: 'Account Summary',
-    accounts
+    accounts: accounts
   });
 } );
 
