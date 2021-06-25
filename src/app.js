@@ -27,13 +27,22 @@ app.get('/', (req, res) => {
   });
 } );
 
-accountKeys.forEach(key => {
-  app.get(`/${accounts[key]['unique_name']}`, (req, res)=> {
-    res.render('account', {
-      account: accounts[key]
-    })
-  });
-})
+app.get('/savings', (req, res)=> {
+  res.render('account', {
+    account: accounts.savings
+  })
+});
+app.get('/checking', (req, res)=> {
+  res.render('account', {
+    account: accounts.checking
+  })
+});
+app.get('/credit', (req, res)=> {
+  res.render('account', {
+    account: accounts.credit
+  })
+});
+
 
 app.get(`/profile`, (req, res)=> {
   res.render('profile', {
